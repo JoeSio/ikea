@@ -364,8 +364,9 @@ function attemptSnap(obj) {
             .onComplete(() => {
                 // Logic to strictly attach it to the parent group
                 scene.remove(obj);
-                targetSocket.add(obj); // Child of socket
-                obj.position.set(0, -0.9, 0); // Local center relative to socket
+                tableGroup.add(obj); // Child of tableGroup
+                obj.position.copy(targetSocket.position);
+                obj.position.y -= 0.9;
                 obj.rotation.set(0, 0, 0);
 
                 // Hide the ghost helper
